@@ -34,9 +34,10 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install Dependencies
+    - name: Install Dependencies # bruh how???
       run: |
         git clone https://github.com/Community-Spotlight/Site.git
+        cd Site 
         npm install
 
     - name: Build and Deploy
