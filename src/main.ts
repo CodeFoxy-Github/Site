@@ -90,9 +90,6 @@ Acceptable Formats: MP4
       flex-wrap: wrap;
       gap: 1rem;
     }
-    mat-card {
-      width: 200px;
-    }
     mat-card-avatar img {
       border-radius: 50%;
       width: 100%;
