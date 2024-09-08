@@ -36,7 +36,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        ls
+        git clone https://github.com/Community-Spotlight/Site.git
         npm install
 
     - name: Build and Deploy
