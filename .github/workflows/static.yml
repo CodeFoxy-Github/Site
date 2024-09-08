@@ -1,0 +1,43 @@
+name: Deploy and build site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Setup Node
+        uses: actions/setup-node@26961cf329f22f6837d5f54c3efd76b480300ace # v4
+        with:
+            node-version: '20.x'
+      - name: Install dependencies
+        run: |
+          npm install
+          sudo npm install -g @angular/cli
+      - name: Build
+        run: ng build
+      - name: List Site (build)
+        run: echo Site files && echo | ls dist/demo/browser/
+      - name: Deploy to GitHub Pages and buold
+        id: deployment
+        uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564 #v4
+        with:
+          build_dir: dist/demo/browser/
+          verbose: true
