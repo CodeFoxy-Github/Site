@@ -35,11 +35,10 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build
-      run: npm run build
+    - name: Everything
+      run: |
+        npm install
+        npm run ng -- deploy --no-silent
 
     - name: Deploy to GitHub Pages
       id: deployment
