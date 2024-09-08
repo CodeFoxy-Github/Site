@@ -34,15 +34,12 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install Dependencies # bruh how???
+    - name: Install Dependencies and Build # bruh how???
       run: |
         git clone https://github.com/Community-Spotlight/Site.git
         cd Site 
         npm install
-
-    - name: Build and Deploy
-      run: |
-        npm run ng -- deploy --no-silent
+        # bruh how???
 
     - name: Deploy to GitHub Pages
       id: deployment
