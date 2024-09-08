@@ -34,12 +34,9 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install Dependencies and Build # bruh how???
-      run: |
-        git clone https://github.com/Community-Spotlight/Site.git
-        cd Site 
-        npm install
-        # bruh how???
+    - name: Angular Deploy gh-pages Actions
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+            
 
     - name: Deploy to GitHub Pages
       id: deployment
