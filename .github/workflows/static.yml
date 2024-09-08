@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: ng build
       - name: List Site (build)
-        run: echo Site files && echo | ls dist/angular-why/browser/
+        run: echo Site files && echo | ls dist/demo/browser/
       - name: Deploy to GitHub Pages and buold
         id: deployment
         uses: crazy-max/ghaction-github-pages@c05ee637ec73429400a359430db8e5629f3f2564 #v4
